@@ -1,0 +1,99 @@
+/* --------------------------
+   GLOBAL SCHWARZE SCHRIFT
+-------------------------- */
+* {
+    color: #000000;  /* kein !important für global, damit eigene Nachrichten nicht überschrieben werden */
+}
+
+/* --------------------------
+   ROOT VARIABLES (Light Mode)
+-------------------------- */
+:root, .theme-light, [data-theme="light"] {
+    --color-background-app: #ece4d9 !important;              /* Chat-Hintergrund */
+    --color-background-sidebar: #ffffff !important;          /* Chatliste */
+    --color-background-sidebar-opaque: #ffffff !important;
+    --color-background-menu: #f7f5f3 !important;            /* Linkes Menü */
+    
+    --color-background-message-bubble-sent: #d9fdd3 !important;      /* eigene Nachrichten */
+    --color-background-message-bubble-received: #ffffff !important;  /* andere Nachrichten */
+    
+    --color-primary: #d9fdd3 !important;
+    --color-text-on-accent: #000000 !important;
+    --color-text-neutrals: #000000 !important;
+    
+    --color-border-neutrals-weak: transparent !important;
+    --color-border-translucent: transparent !important;
+}
+
+/* --------------------------
+   CHATLISTE (links)
+-------------------------- */
+.filters-pane,
+[class*="ThreadsPane"],
+nav[role="navigation"],
+.thread-list-item {
+    background-color: #ffffff !important;
+    border: none !important;
+}
+
+/* --------------------------
+   CHAT FENSTER
+-------------------------- */
+main,
+.thread-view,
+.messages-list,
+.thread-header,
+.composer-container {
+    background-color: #ece4d9 !important;  /* Chat-Hintergrund */
+    border: none !important;
+}
+
+/* --------------------------
+   MEINE NACHRICHTEN (grün + Text schwarz)
+-------------------------- */
+.message-bubble.sent,
+[class*="sent"] .message-bubble,
+[data-sent="true"] .message-bubble {
+    background-color: #d9fdd3 !important; /* Bubble grün */
+    color: #000000 !important;            /* Text schwarz */
+}
+
+/* --------------------------
+   EMPFANGENE NACHRICHTEN (weiß + Text schwarz)
+-------------------------- */
+.message-bubble.received,
+[class*="received"] .message-bubble,
+[data-sent="false"] .message-bubble,
+.message-bubble[data-sent="false"],
+.thread-view .message-bubble:not([data-sent="true"]),
+.messageRow:not([data-sent="true"]) .message-bubble,
+.messageContainer:not([data-sent="true"]) .message-bubble {
+    background-color: #ffffff !important;  /* Bubble weiß */
+    color: #000000 !important;             /* Text schwarz */
+    border: none !important;
+}
+
+/* --------------------------
+   ROLLEN, REACTS, UI
+-------------------------- */
+.reaction,
+.emoji,
+.reactions-container {
+    background-color: transparent !important;
+}
+
+/* --------------------------
+   UNGELESENE BENACHRICHTIGUNGEN – Badge/Kreis
+-------------------------- */
+.ThreadListItem-module__unreadCount {
+    background-color: #1fa961 !important; /* Kreis grün */
+    color: #ffffff !important;            /* Zahl weiß */
+    border-radius: 50% !important;        /* Rund */
+    min-width: 18px !important;
+    height: 18px !important;
+    display: inline-flex !important;
+    justify-content: center !important;
+    align-items: center !important;
+    padding: 0 6px !important;            /* Zahl zentriert */
+    font-weight: bold !important;
+}
