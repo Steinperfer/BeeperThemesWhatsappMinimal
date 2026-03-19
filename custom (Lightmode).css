@@ -1,0 +1,236 @@
+/* ============================================
+   BEEPER - DISCORD THEME
+   ============================================ */
+
+/* USER'S COLORS */
+:root {
+    --discord-sidebar: #121214;
+    --discord-chat: #1a1a1e;
+    --discord-text: #dcddde;
+    --discord-text-muted: #b9bbbe;
+    --discord-hover: #2a2a2a;
+    --discord-accent: #5865F2;
+}
+
+/* ============================================
+   HEADER WEG
+   ============================================ */
+.thread-header, .right-pane-header, .right-pane-header-thread {
+    display: none !important;
+}
+
+/* ============================================
+   SIDEBAR
+   ============================================ */
+.left { background: var(--discord-sidebar) !important; }
+.account-switcher, .filters-pane-list, .threads-list-container { background: transparent !important; }
+.account-container { background: transparent !important; border-radius: 8px !important; margin: 2px 8px !important; }
+.account-container:hover { background: var(--discord-hover) !important; }
+.account-container[data-id="inbox"] { background: var(--discord-accent) !important; }
+.sidebar-button button { background: transparent !important; color: var(--discord-text) !important; }
+.sidebar-button button:hover { background: var(--discord-accent) !important; color: white !important; }
+.ThreadListItem-module__wrapper { background: transparent !important; border-radius: 4px !important; margin: 1px 8px !important; padding: 0 8px !important; }
+.ThreadListItem-module__wrapper:hover { background: var(--discord-hover) !important; }
+.ThreadListItem-module__wrapper.ThreadListItem-module__isSelected { background: #393d42 !important; }
+.ThreadListItem-module__title { color: var(--discord-text) !important; font-weight: 500 !important; }
+.ThreadListItem-module__preview { color: var(--discord-text-muted) !important; }
+.ThreadListItem-module__unreadCount { background: var(--discord-accent) !important; color: white !important; border-radius: 10px !important; }
+
+/* ============================================
+   CHAT FENSTER
+   ============================================ */
+.right-wrapper, .right-thread, .thread-pane-expanded, .pane-container, .messages-list-scrolling-container {
+    background: var(--discord-chat) !important;
+}
+
+/* ============================================
+   GRUPPEN: Avatar wie in DMs
+   ============================================ */
+.message-container {
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: flex-start !important;
+    padding: 2px 16px !important;
+    margin: 0 !important;
+    border-left: none !important;
+}
+.message-container:hover { background: var(--discord-hover) !important; }
+.message-row {
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: flex-start !important;
+    width: 100% !important;
+    padding: 0 !important;
+    margin: 0 !important;
+}
+.message-contents, .message-bubble, .bubble-mode .message-contents {
+    background: transparent !important;
+    border-radius: 0 !important;
+    padding: 0 !important;
+    margin: 0 !important;
+    color: var(--discord-text) !important;
+    max-width: none !important;
+    width: auto !important;
+}
+.message-row .MessageSender-module__senderName, .message-sender-name {
+    color: var(--discord-text) !important;
+    font-weight: 600 !important;
+    font-size: 14px !important;
+    margin-bottom: 2px !important;
+    display: block !important;
+}
+.message-text-container, .message-text {
+    color: var(--discord-text) !important;
+    font-size: 15px !important;
+    line-height: 1.4 !important;
+    display: block !important;
+}
+.message-timestamp, .message-row .message-timestamp {
+    color: var(--discord-text-muted) !important;
+    font-size: 11px !important;
+    font-weight: 500 !important;
+    margin-left: 8px !important;
+    display: inline !important;
+}
+.message-row .participant-img { display: none !important; }
+.message-row::before { content: "" !important; display: none !important; }
+
+/* EIGENE NACHRIchten - GENAU WIE GEGENÜBER */
+.message-container.is-sender {
+    display: flex !important;
+    flex-direction: row !important;
+    justify-content: flex-start !important;
+    text-align: left !important;
+    padding-left: 0 !important;
+    margin-left: 0 !important;
+    width: 100% !important;
+}
+
+/* ============================================
+   DM & GRUPPEN: Avatar NUR bei Senderwechsel (simpler Ansatz)
+   ============================================ */
+
+/* DM & Gruppen: Avatar Position */
+.message-container.is-dm,
+.message-container.is-sender {
+    padding-left: 56px !important;
+    position: relative !important;
+}
+
+/* Avatar Kreis für andere Personen - DM */
+.message-container.is-dm:not(.is-sender)::before {
+    content: "DM" !important;
+    display: flex !important;
+    position: absolute !important;
+    left: 14px !important;
+    top: 0px !important;
+    width: 36px !important;
+    height: 36px !important;
+    border-radius: 50% !important;
+    background: #5865f2 !important;
+    color: #fff !important;
+    font-weight: 700 !important;
+    font-size: 13px !important;
+    align-items: center !important;
+    justify-content: center !important;
+}
+
+/* Avatar Kreis für eigene Nachrichten - DM */
+.message-container.is-dm.is-sender::before {
+    content: "ME" !important;
+    display: flex !important;
+    position: absolute !important;
+    left: 14px !important;
+    top: 0px !important;
+    width: 36px !important;
+    height: 36px !important;
+    border-radius: 50% !important;
+    background: #3ba55d !important;
+    color: #fff !important;
+    font-weight: 700 !important;
+    font-size: 13px !important;
+    align-items: center !important;
+    justify-content: center !important;
+}
+
+/* Avatar Kreis für eigene Nachrichten - GRUPPEN */
+.message-container.is-sender:not(.is-dm)::before {
+    content: "ME" !important;
+    display: flex !important;
+    position: absolute !important;
+    left: 14px !important;
+    top: 0px !important;
+    width: 36px !important;
+    height: 36px !important;
+    border-radius: 50% !important;
+    background: #3ba55d !important;
+    color: #fff !important;
+    font-weight: 700 !important;
+    font-size: 13px !important;
+    align-items: center !important;
+    justify-content: center !important;
+}
+
+/* Andere Personen in Gruppen - KEIN Avatar */
+.message-container:not(.is-dm):not(.is-sender)::before {
+    display: none !important;
+}
+
+/* DER TRICK: Nur anzeigen wenn die NÄCHSTE Nachricht von ANDEREM Sender ist */
+/* Mit :has() - prüft ob Geschwister-Element existiert */
+.message-container:not(:has(+ *))::before {
+    /* Letzte Nachricht - immer anzeigen */
+    display: flex !important;
+}
+
+/* Fallback: Versuche Avatar zu verstecken wenn Nachricht davor existiert */
+.message-container:has(+ .message-container)::before {
+    /* Hat eine Nachricht danach - prüfen ob gleicher Sender */
+}
+
+/* ============================================
+   REAKTIONEN & MEHR NACH RECHTS
+   ============================================ */
+div[class*="message-interactions"],
+[class*="MessageInteractions"],
+div[class*="interactions"],
+.message-interactions,
+[class*="actions"] {
+    position: absolute !important;
+    right: 8px !important;
+    left: auto !important;
+    top: 50% !important;
+    transform: translateY(-50%) !important;
+    opacity: 0 !important;
+    z-index: 999 !important;
+    margin-left: 8px !important;
+}
+
+.message-container:hover div[class*="message-interactions"],
+.message-container:hover [class*="MessageInteractions"],
+.message-container:hover div[class*="interactions"],
+.message-container:hover .message-interactions,
+.message-container:hover [class*="actions"] {
+    opacity: 1 !important;
+}
+
+/* ============================================
+   REST
+   ============================================ */
+::-webkit-scrollbar { width: 8px !important; }
+::-webkit-scrollbar-thumb { background: #202225 !important; border-radius: 4px !important; }
+.date div { background: var(--discord-chat) !important; color: var(--discord-text-muted) !important; font-size: 12px !important; font-weight: 600 !important; }
+input, textarea { background: #242626 !important; border: none !important; border-radius: 4px !important; color: var(--discord-text) !important; }
+button { background: #4f545c !important; color: var(--discord-text) !important; border-radius: 4px !important; }
+button.primary { background: var(--discord-accent) !important; color: white !important; }
+a { color: #00b0f4 !important; }
+.modal { background: var(--discord-chat) !important; }
+.tooltip { background: black !important; color: white !important; border-radius: 4px !important; }
+code, pre { background: #202225 !important; color: var(--discord-text) !important; border-radius: 4px !important; }
+.message-reactions { background: rgba(88, 101, 242, 0.1) !important; border-radius: 8px !important; }
+.mention { background: rgba(88, 101, 242, 0.2) !important; color: #00b0f4 !important; border-radius: 4px !important; }
+.participant-img { border-radius: 50% !important; }
+.ScrollToBottom-module__scrollToBottom { background: var(--discord-accent) !important; border-radius: 50% !important; }
+.left-pane-footer { background: var(--discord-sidebar) !important; border-top: 1px solid transparent !important; }
+.left-pane-footer button { color: var(--discord-text-muted) !important; }
+.left-pane-footer button:hover { background: var(--discord-hover) !important; color: var(--discord-text) !important; }

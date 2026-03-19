@@ -1,0 +1,36 @@
+/* BEEPER DISCORD - FIX EIGENE FARBE */
+:root, .theme-dark, [data-theme="dark"] {
+    --color-background-sidebar: #121214 !important;
+    --color-background-app: #1a1a1e !important;
+    
+    /* Die Variablen für die Sprechblasen direkt setzen */
+    --color-background-message-bubble-sent: #144d37 !important;
+    --color-background-message-bubble-received: #242626 !important;
+    --color-primary: #144d37 !important; /* Ersetzt das Blau global */
+}
+
+/* Erzwingt DEINE Farbe (Grün) und löscht das Blau */
+.message-bubble.sent, 
+[class*="MessageBubble"][class*="sent"],
+.message-row.sent .message-bubble {
+    background-color: #144d37 !important;
+    background: #144d37 !important;
+    color: #ffffff !important;
+}
+
+/* Erzwingt DIE ANDEREN Farben (Grau) */
+.message-bubble.received, 
+[class*="MessageBubble"][class*="received"],
+.message-row.received .message-bubble {
+    background-color: #242626 !important;
+    background: #242626 !important;
+    color: #dcddde !important;
+}
+
+/* Hintergründe der App-Bereiche */
+.filters-pane, [class*="ThreadsPane"], nav[role="navigation"] {
+    background-color: #121214 !important;
+}
+main, .thread-view, .messages-list {
+    background-color: #1a1a1e !important;
+}
